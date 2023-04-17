@@ -1,0 +1,13 @@
+  - name: Install nagios (CentOS)
+    dnf:
+      name:
+        - nagios
+        - nagios-plugins
+      state: latest
+
+  - name: start nagios for centos
+    tags: nagios,apache,centos,httpd
+    service:
+      name: nagios
+      state: started
+    when: ansible_distribution == "CentOS"
